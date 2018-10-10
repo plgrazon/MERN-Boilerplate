@@ -5,7 +5,7 @@ const parser = require('body-parser');
 const path = require('path');
 
 const { router } = require('../router/appRouter');
-2
+
 // security for server
 const helmet = require('helmet');
 // secure headers

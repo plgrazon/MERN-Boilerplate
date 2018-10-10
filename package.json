@@ -4,7 +4,8 @@
   "description": "A reusable template for MERN projects.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/plgrazon/MERN-Boilerplate/issues"
   },
-  "homepage": "https://github.com/plgrazon/MERN-Boilerplate#readme"
+  "homepage": "https://github.com/plgrazon/MERN-Boilerplate#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
 }
