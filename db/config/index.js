@@ -28,6 +28,6 @@ const db = {
   }
 };
 
-module.export = {
+module.exports = {
   db
 };
