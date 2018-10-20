@@ -1,11 +1,20 @@
-// const { testController } = require('../controller/testController');
-//
-// router.route('/test')
-//   .get(testController.get)
-//   .post(testController.post)
-//   .put(testController.put)
-//   .delete(testController.delete)
-//
-// module.exports = {
-//   router: router
-// };
+const database = require('../../db/config').db;
+
+const testController = {
+  get: () => {
+
+  },
+  post: () => {
+
+  },
+  put: () => {
+
+  },
+  delete: () => {
+
+  }
+}
+
+module.exports = {
+  testController
+};

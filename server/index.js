@@ -8,7 +8,7 @@ const dbUtil = require('../db/config').db;
 // intialize database
 dbUtil.initializeClient(console.log);
 
-// const { router } = require('./router');
+const { router } = require('./router');
 
 // security for server
 const helmet = require('helmet');
@@ -25,7 +25,7 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../static')));
 
-// app.use('/api', router);
+app.use('/api', router);
 
 app.listen(PORT, err => {
   if (err) {
