@@ -1,7 +1,9 @@
 const path = require('path');
 
-const entryPoint = path.resolve(__dirname, 'client');
-const outputPoint = path.resolve(__dirname, 'static');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const entryPoint = path.resolve(__dirname, 'client/src');
+const outputPoint = path.resolve(__dirname, 'client/dist');
 
 module.exports = {
   entry: path.resolve(entryPoint, 'index.jsx'),
@@ -23,9 +25,25 @@ module.exports = {
         }
       },
       {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            minimize: true
+          }
+        }
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './static/index.html',
+      filename: 'index.html',
+      minify: true
+    })
+  ]
 }

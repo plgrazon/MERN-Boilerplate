@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class App extends Compoment {
+class App extends Component {
   constructor() {
     super();
 
@@ -13,7 +13,7 @@ class App extends Compoment {
       <div>
         <h1>This is a MERN Boiler Plate</h1>
       </div>
-    )
+    );
   }
 }
 
