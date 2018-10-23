@@ -4,27 +4,35 @@ const MongoClient = require('mongodb').MongoClient;
 
 const url = process.env.DB_URL;
 
-const db = {
-  database: null,
+let database = null;
 
+const db = {
   initializeClient: (callback) => {
-    MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
-      this.database = client.db('myProject');
-      if (err) {
-        callback(err);
-      }
-      console.log('Connected to database');
-      this.database.createCollection('myCollection', (err, data) => {
+    if (!database) {
+      MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
+        database = client.db('myProject');
         if (err) {
-          console.log('Failed to create collection ', err);
+          return callback(err);
         }
-        console.log('Created collection');
+        console.log('Connected to database');
+        database.createCollection('myCollection', (err, data) => {
+          if (err) {
+            console.log('Failed to create collection ', err);
+          }
+          console.log('Created collection');
+        });
       });
-    });
+    } else {
+      return callback(null, database);
+    }
   },
 
   getClient: () => {
-    return this.database;
+    return database;
+  },
+
+  closeClient: () => {
+    database.close();
   }
 };
 

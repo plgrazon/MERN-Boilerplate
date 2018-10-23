@@ -6,7 +6,12 @@ const path = require('path');
 
 const dbUtil = require('../db/config').db;
 // intialize database
-dbUtil.initializeClient(console.log);
+dbUtil.initializeClient((err, db) => {
+  if (err) {
+    console.log('database error: ', err);
+  }
+  console.log('database: ', db);
+});
 
 const { router } = require('./router');
 
